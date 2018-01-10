@@ -8,11 +8,35 @@
     <artifactId>springbootofficial</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--  -->
+    <!-- spring-boot-starter-parent是一个添加了一些默认Maven配置的特殊的starter。
+        也添加了dependency-management部分，这个部分可以让您省掉某些依赖项的version标签。 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
     </parent>
 
+    <!--其他的 “Starters”添加了在您开发其他特定类型应用程序的时候，您很可能需要添加的一些依赖项。
+    我们目前正在开发Web应用，我们需要添加依赖项spring-boot-starter-web-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--spring-boot-starter-parent本身并没有引入任何依赖
+    把spring-boot-starter-web依赖添加到parent部分的下面
+    您可以发现现在增加了一些依赖项，包括Tomcat Web服务器和Spring Boot
+    -->
+
+    <!-- 打包可执行jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
